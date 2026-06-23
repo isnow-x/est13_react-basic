@@ -1,4 +1,5 @@
 // MyArticle 컴포넌트
+console.log("MyArticle render");
 function MyArticle({ title, desc }) {
   return (
     <section>
