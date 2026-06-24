@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import MyArticle from "./components/MyArticle";
 import Controls from "./components/controls";
 import CreateArticle from "./components/createArticle";
+import UpdateArticle from "./components/UpdateArticle";
 
 function App() {
   console.log("App render");
@@ -51,9 +52,13 @@ function App() {
           let _contents = content.concat({ id: newId, title: _title, desc: _desc });
           setContent(_contents);
           setMaxId(newId);
+          setId(newId);
+          setMode("read");
         }}
       />
     );
+  } else if (mode === "update") {
+    _article = <UpdateArticle />;
   }
 
   const handleChangeMode = useCallback(_id => {
