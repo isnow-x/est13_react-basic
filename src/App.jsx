@@ -42,7 +42,15 @@ function App() {
       _title = selected.title;
       _desc = selected.desc;
     }
-    _article = <MyArticle title={_title} desc={_desc} />;
+    _article = (
+      <MyArticle
+        title={_title}
+        desc={_desc}
+        onChangeMode={() => {
+          setMode("update");
+        }}
+      />
+    );
   } else if (mode === "create") {
     _article = (
       <CreateArticle
@@ -58,7 +66,28 @@ function App() {
       />
     );
   } else if (mode === "update") {
-    _article = <UpdateArticle />;
+    const selected = content.find(c => c.id === id);
+    console.log(selected);
+    if (!selected) return null;
+    _article = (
+      <UpdateArticle
+        title={selected.title}
+        desc={selected.desc}
+        onSubmit={(_title, _desc) => {
+          let _content = content.map(c =>
+            c.id === id
+              ? {
+                  ...c,
+                  title: _title,
+                  desc: _desc,
+                }
+              : c,
+          );
+          setContent(_content);
+          setMode("read");
+        }}
+      />
+    );
   }
 
   const handleChangeMode = useCallback(_id => {
