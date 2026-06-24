@@ -1,11 +1,12 @@
 // MyArticle 컴포넌트
 console.log("MyArticle render");
-function MyArticle({ title, desc, onChangeMode, onDelete }) {
+function MyArticle({ title, desc, difficulty, onChangeMode, onDelete }) {
   return (
     <section>
       <article>
         <h2>{title}</h2>
         <p>{desc}</p>
+        <p>난이도: {difficulty}</p>
       </article>
       {onChangeMode && <button onClick={onChangeMode}>수정</button>}
       {onDelete && <button onClick={onDelete}>삭제</button>}
