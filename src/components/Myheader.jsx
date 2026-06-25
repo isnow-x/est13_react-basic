@@ -1,4 +1,4 @@
-// Myheader 컴포넌트
+//Myheader 컴포넌트
 function Myheader({ title, desc, onChangeMode }) {
   console.log("Myheader render");
   return (
@@ -15,5 +15,4 @@ function Myheader({ title, desc, onChangeMode }) {
     </header>
   );
 }
-
 export default Myheader;

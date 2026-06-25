@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function ArticleForm({ initTitle = "", initDesc = "", initDifficulty = "", onSubmit }) {
+function ArticleForm({ initTitle = "", initDesc = "", initLevel = "", onSubmit }) {
   const [content, setContent] = useState({
     title: initTitle,
     desc: initDesc,
-    difficulty: initDifficulty,
+    level: initLevel,
   });
 
   const handleChange = e => {
@@ -22,7 +22,7 @@ function ArticleForm({ initTitle = "", initDesc = "", initDifficulty = "", onSub
       action=""
       onSubmit={e => {
         e.preventDefault();
-        onSubmit(content.title, content.desc, content.difficulty);
+        onSubmit(content.title, content.desc, content.level);
       }}
     >
       <div>
@@ -34,14 +34,12 @@ function ArticleForm({ initTitle = "", initDesc = "", initDifficulty = "", onSub
         <textarea name="desc" id="desc" value={content.desc} onChange={handleChange}></textarea>
       </div>
       <div>
-        <label htmlFor="difficulty">difficulty</label>
+        <label htmlFor="level">level</label>
         <input
           type="number"
-          min="0"
-          max="5"
-          name="difficulty"
-          id="difficulty"
-          value={content.difficulty}
+          name="level"
+          id="level"
+          value={content.level}
           onChange={handleChange}
         />
       </div>
@@ -49,5 +47,4 @@ function ArticleForm({ initTitle = "", initDesc = "", initDifficulty = "", onSub
     </form>
   );
 }
-
 export default ArticleForm;

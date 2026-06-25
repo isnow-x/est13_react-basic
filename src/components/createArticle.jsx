@@ -9,5 +9,4 @@ function CreateArticle({ onSubmit }) {
     </>
   );
 }
-
 export default CreateArticle;

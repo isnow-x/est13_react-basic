@@ -12,5 +12,4 @@ function Controls({ onChangeMode }) {
     </div>
   );
 }
-
 export default Controls;
